@@ -8,18 +8,17 @@
         Title="MainWindow" Height="350" Width="525" 
         d:DataContext="{d:DesignInstance client:Vm}">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="{l:Translate Message}"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
-        <Button Grid.Row="1" Grid.Column="1" Command="{Binding SendCommand}" Content="Send"/>
+        <GroupBox Grid.Row="0" Grid.Column="0" Header="{l:Translate Message}">
+            <TextBox Text="{Binding Message}"/>
+        </GroupBox>
+        <Button Grid.Row="1" Command="{Binding SendCommand}" Content="Send"/>
+        <TextBlock Grid.Row="2" Text="{Binding MessageCount, StringFormat='MessageCount: {0}'}"/>
+
     </Grid>
 </Window>
