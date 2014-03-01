@@ -17,7 +17,10 @@
         <GroupBox Grid.Row="0" Grid.Column="0" Header="{l:Translate Message}">
             <TextBox Text="{Binding Message}"/>
         </GroupBox>
-        <Button Grid.Row="1" Command="{Binding SendCommand}" Content="Send"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button  Command="{Binding SendCommand}" Content="Send"/>
+        </StackPanel>
+
         <TextBlock Grid.Row="2" Text="{Binding MessageCount, StringFormat='MessageCount: {0}'}"/>
 
     </Grid>

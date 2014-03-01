@@ -1,17 +1,27 @@
 ﻿namespace Client
 {
+    using System;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
     using System.Threading.Tasks;
     using Annotations;
+    using Contracts;
+    using ServerRef;
 
     public class Vm : INotifyPropertyChanged
     {
         private int _messageCount;
+        private Service1Client _server;
         public Vm()
         {
+
+            _server = new ServerRef.Service1Client();
+            SendCommand = new RelayCommand(o =>
+            {
+                _server.SendMessage(new DummyMessage { Message = Message, Time = DateTime.UtcNow });
+                Message = null;
+            });
             Poll();
-            //SendCommand= new RelayCommand(o=>ServerRef);
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public string Message { get; set; }
@@ -34,8 +44,8 @@
         {
             while (true)
             {
-                await Task.Delay(500);
-
+                await Task.Delay(100);
+                MessageCount = _server.GetMessageCount();
             }
         }
         [NotifyPropertyChangedInvocator]

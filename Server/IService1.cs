@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-namespace DummyServer
+﻿namespace DummyServer
 {
     using System.Runtime.Serialization;
     using System.ServiceModel;
@@ -13,6 +11,7 @@ namespace DummyServer
 
         [OperationContract]
         void SendMessage(DummyMessage message);
+        [OperationContract]
         int GetMessageCount();
     }
 }

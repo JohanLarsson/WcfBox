@@ -106,9 +106,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ServerRef\Client.ServerRef.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServerRef\Service1.wsdl" />
     <None Include="Service References\ServerRef\Service1.xsd">
       <SubType>Designer</SubType>
