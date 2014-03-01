@@ -25,7 +25,9 @@
         <TextBlock Grid.Row="2" Text="{Binding MessageCount, StringFormat='MessageCount: {0}'}"/>
         <StackPanel Grid.Row="3">
             <TextBlock  Text="{l:Translate MissingKey}"/>
-            <ComboBox ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"/>
+            <ComboBox ItemsSource="{Binding Languages}" 
+                      SelectedItem="{Binding SelectedLanguage}" 
+                      DisplayMemberPath="NativeName"/>
         </StackPanel>
 
     </Grid>
