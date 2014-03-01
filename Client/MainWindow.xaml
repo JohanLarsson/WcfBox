@@ -14,14 +14,19 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Row="0" Grid.Column="0" Header="{l:Translate Message}">
+        
+       <GroupBox Grid.Row="0" Header="{l:Translate Message}">
             <TextBox Text="{Binding Message}"/>
         </GroupBox>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button  Command="{Binding SendCommand}" Content="Send"/>
+            <Button  Command="{Binding SendCommand}" Content="{l:Translate Send}"/>
         </StackPanel>
 
         <TextBlock Grid.Row="2" Text="{Binding MessageCount, StringFormat='MessageCount: {0}'}"/>
+        <StackPanel Grid.Row="3">
+            <TextBlock  Text="{l:Translate MissingKey}"/>
+            <ComboBox ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"/>
+        </StackPanel>
 
     </Grid>
 </Window>
